@@ -6,19 +6,19 @@ import Inicio from "./pages/Inicio";
 import Menu from "./pages/Menu";
 import Nosotros from "./pages/Nosotros";
 import Contacto from "./pages/Contacto";
-import { HashRouter as Router, Route, Switch } from "react-router-dom";
+import { HashRouter as Router, Route, HashRouter, Switch } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <Navbar />
-        <Switch>
+        <HashRouter>
           <Route path="/" exact component={Inicio} />
           <Route path="/menu" exact component={Menu} />
           <Route path="/nosotros" exact component={Nosotros} />
           <Route path="/contacto" exact component={Contacto} />
-        </Switch>
+        </HashRouter>
         <Footer />
       </Router>
     </div>
